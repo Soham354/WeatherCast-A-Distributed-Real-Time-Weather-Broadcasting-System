@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Enter Room Key</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #e0f7fa, #80deea);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h2 {
+        color: #006064;
+        margin-bottom: 20px;
+      }
+
+      form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #b2ebf2;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #00acc1;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+
+      button:hover {
+        background-color: #007c91;
+      }
+
+      p {
+        color: red;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🔐 Enter Chat Room Key</h2>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/chat">
+      <input
+        type="text"
+        name="room_key"
+        placeholder="Enter room key"
+        required
+      />
+      <button type="submit">Join Chat</button>
+    </form>
+  </body>
+</html>
